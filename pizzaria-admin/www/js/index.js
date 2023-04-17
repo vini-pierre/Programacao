@@ -20,16 +20,18 @@ function onDeviceReady() {
 }
 
 function novo() {
-    applista.style.display = 'none'; // exibe lista
-    appcadastro.style.display = 'flex'; // oculta cadastro 
+    applista.style.display = 'none';
+    appcadastro.style.display = 'flex';
     btnSalvar.onclick = function () {
         salvar();
     }
 }
 
 function cancelar() {
-    applista.style.display = 'flex'; // exibe lista
-    appcadastro.style.display = 'none'; // oculta cadastro   
+    applista.style.display = 'flex';
+    appcadastro.style.display = 'none';
+    listaPizzas.innerHTML = '';
+    carregarPizzas();
 }
 function foto() {
     navigator.camera.getPicture(onSuccess, 
@@ -39,7 +41,7 @@ function foto() {
        );
 
     function onSuccess(imageData) {
-    preview.style.backgroundImage = "url('data:image/jpeg;base64," + imageData + "')"; 
+    imagem.style.backgroundImage = "url('data:image/jpeg;base64," + imageData + "')"; 
     }
 
     function onFail(message) { 
